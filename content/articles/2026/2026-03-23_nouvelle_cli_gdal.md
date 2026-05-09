@@ -231,6 +231,7 @@ Depuis GDAL 3.12, il est même possible de les appeler de manière encore plus s
 
 ```python
 gdal.alg.raster.convert(input="in.tif", output="out.tif")
+
 Exemple pour importer un fichier csv dans une base PostgreSQL (plutôt que d'utiliser `COPY` de postgres, plus fastidieux):
 
 ```python
