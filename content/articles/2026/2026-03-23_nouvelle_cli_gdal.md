@@ -222,9 +222,9 @@ Chaque programme `GDAL` est implémenté sous forme d'instances de la classe `os
 Ensuite, c'est simple, ils s'appellent comme ceci :
 
 ```python
-gdal.Run("vector", "programme", option(s), input="in.tif", output="out.tif")
+gdal.Run("vector", "programme", option(s), input="in.shp", output="out.gpkg")
 gdal.Run("raster", "programme", option(s), input="in.tif", output="out.tif")
-gdal.Run("vsi", "programme", option(s), input="in.tif", output="out.tif")
+gdal.Run("vsi", "programme", option(s), input="in.zip", output="out.gpkg")
 ```
 
 Exemple pour importer un fichier csv dans une base PostgreSQL (plutôt que d'utiliser `COPY` de postgres, plus fastidieux):
