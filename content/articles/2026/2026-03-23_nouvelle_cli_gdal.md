@@ -74,7 +74,6 @@ Pour du vecteur on peut aussi importer un shape (beurk) dans une base PostGIS :
 gdal vector convert --append in.shp PG:"dbname='my_db' user='me' password='admin123' schemas='my_schema'"
 ```
 
-
 On peut même copier le contenu d'un flux WFS vers un geopackage :
 
 ```sh
