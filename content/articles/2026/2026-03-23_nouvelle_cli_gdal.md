@@ -227,6 +227,10 @@ gdal.Run("raster", "programme", option(s), input="in.tif", output="out.tif")
 gdal.Run("vsi", "programme", option(s), input="in.zip", output="out.gpkg")
 ```
 
+Depuis GDAL 3.12, il est même possible de les appeler de manière encore plus simple :
+
+```python
+gdal.alg.raster.convert(input="in.tif", output="out.tif")
 Exemple pour importer un fichier csv dans une base PostgreSQL (plutôt que d'utiliser `COPY` de postgres, plus fastidieux):
 
 ```python
