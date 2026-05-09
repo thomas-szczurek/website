@@ -231,6 +231,10 @@ Depuis GDAL 3.12, il est même possible de les appeler de manière encore plus s
 
 gdal.alg.raster.convert(input="in.tif", output="out.tif")
 
+Pour ainsi utiliser le programme `convert` sur un raster.
+
+Voici un autre exemple pour copier le contenu d'un csv dans une base PostgreSQL (plutôt que d'utiliser le programme `COPY` de PostgreSQL, plus fastidieux.
+
 ```python
 gdal.Run("vector", "convert", append=True, format="PostgreSQL", lco="LAUNDER=NO", input=my_file.csv, output="PG:dbname='insee' schemas='wip' user='me' password='admin123'")
 ```
