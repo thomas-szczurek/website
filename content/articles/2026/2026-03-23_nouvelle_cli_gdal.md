@@ -40,7 +40,7 @@ On ne le répétera jamais assez mais sans GDAL, presque rien n'existerait dans 
 
 Maîtriser `GDAL`, c'est être capable de remplacer des ~~interfaces graphiques~~ logiciels coûtant des dizaines de milliers d'euros.
 
-Cependant, historiquement les programmes `GDAL` étaient ... comment dire ... peut normés entre eux, par exemple `gdal_translate` (le programme servant aux conversions raster) demandait ses fichiers d'entrée / sortie dans cet ordre : in -> out alors qu'`ogr2ogr` (le programme servant aux conversions vecteur) lui demandait : out -> in. De plus les plus gros programmes, ceux qui "faisaient tout" on été supprimés et remplacés par des équivalents plus spécifiques.
+Cependant, historiquement les programmes `GDAL` étaient... comment dire... peu normés entre eux, par exemple `gdal_translate` (le programme servant aux conversions raster) demandait ses fichiers d'entrée / sortie dans cet ordre : in -> out alors qu'`ogr2ogr` (le programme servant aux conversions vecteur) lui demandait : out -> in. De plus les plus gros programmes, ceux qui "faisaient tout" ont été remplacés par des équivalents plus spécifiques.
 Pas de panique, les anciennes commandes restent disponibles pour garder vos scripts existants en vie.
 
 ## Principes de la nouvelle CLI
@@ -74,7 +74,6 @@ Pour du vecteur on peut aussi importer un shape (beurk) dans une base PostGIS :
 gdal vector convert --append in.shp PG:"dbname='my_db' user='me' password='admin123' schemas='my_schema'"
 ```
 
-Une différence par rapport à l'ancienne CLI est l'obligation de l'utilisation de l'option `append`, même pour créer une table non existante.
 
 On peut même copier le contenu d'un flux WFS vers un geopackage :
 
@@ -93,7 +92,7 @@ gdal raster calc -i "A=ir.tif" -i "B=r.tif" --calc "(A-B)/(A+B)" -o out.tif
 On peut s'en servir pour créer des [Cloud Optimized Geotiff](https://guide.cloudnativegeo.org/cloud-optimized-geotiffs/intro.html). Voir cet [article de geotribu par Nicolas Rochard](https://geotribu.fr/articles/2025/2025-02-11_bonnes-pratiques-generation-raster-cog-avec-gdal/) pour les options qui sont utilisées par la région Hauts de France.
 
 ```sh
-gdal raster convert --ouput-format=COG -co COMPRESS=ZSTD -co BIGTIFF=IF_NEEDED in.tif out.tif
+gdal raster convert --ouput-format=COG --co COMPRESS=ZSTD in.tif out.tif
 ```
 
 Avec les `--co` qui servent à passer les options spécifiques au driver de sortie. On retrouvera ces différents drivers [ici](https://gdal.org/en/stable/drivers/raster/index.html) pour le raster, et [ici](https://gdal.org/en/stable/drivers/vector/index.html) pour le vecteur.
@@ -135,7 +134,7 @@ Exemple simple n'appliquant qu'une reprojection :
 gdal vector pipeline --progress ! read in.gpkg ! reproject --dst-crs=EPSG:2154 ! write out.gpkg --overwrite
 ```
 
-On peut aussi écrire le `pipeline` au format `gdalg.json` et son [driver dédié](https://gdal.org/en/stable/drivers/vector/gdalg.html). Attention, ne pas confondre `gdalg` et`gdalf` qui invoquera un magicien bourru et surtout ces cochoncettés de Hobbits qui vous viderons le frigo. Ce format rappelera le pipeline à chaque appel sur le fichier !
+On peut aussi écrire le `pipeline` au format `gdalg.json` et son [driver dédié](https://gdal.org/en/stable/drivers/vector/gdalg.html). Attention, ne pas confondre `gdalg` et`gdalf` qui invoquera un magicien bourru et surtout ces cochoncetés de Hobbits qui vous viderons le frigo. Ce format rappellera le pipeline à chaque appel sur le fichier !
 
 ```sh
 gdal vector pipeline --progress ! read in.gpkg ! reproject --dst-crs=EPSG:2154 ! write in_epsg_2154.gdalg.json --overwrite
@@ -224,7 +223,9 @@ Chaque programme `GDAL` est implémenté sous forme d'instances de la classe `os
 Ensuite, c'est simple, ils s'appellent comme ceci :
 
 ```python
-gdal.Run("vector"/"raster"/"vsi", "programme", option(s), input="in.tif", output="out.tif)
+gdal.Run("vector", "programme", option(s), input="in.tif", output="out.tif")
+gdal.Run("raster", "programme", option(s), input="in.tif", output="out.tif")
+gdal.Run("vsi", "programme", option(s), input="in.tif", output="out.tif")
 ```
 
 Exemple pour importer un fichier csv dans une base PostgreSQL (plutôt que d'utiliser `COPY` de postgres, plus fastidieux):
