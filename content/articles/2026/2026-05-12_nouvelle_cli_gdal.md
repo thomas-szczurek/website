@@ -229,8 +229,6 @@ gdal.Run("vsi", "programme", option(s), input="in.zip", output="out.gpkg")
 
 Depuis GDAL 3.12, il est même possible de les appeler de manière encore plus simple :
 
-```python
-gdal.alg.raster.convert(input="in.tif", output="out.tif")
 
 ```python
 gdal.Run("vector", "convert", append=True, format="PostgreSQL", lco="LAUNDER=NO", input=my_file.csv, output="PG:dbname='insee' schemas='wip' user='me' password='admin123'")
