@@ -165,7 +165,7 @@ Mais bien plus claire, et surtout réemployable puisque le fichier `gdalg.json` 
 
 C'est ici le moment magique où votre schéma interne de pensée va être modifié. Désormais quand vous vous poserez la question "comment je fais pour *insert random bidule* ?", vous vous direz alors "en fait je vais le faire avec gdal, ça sera plus simple". On peut ainsi donc dire que `GDAL` est vecteur (ah ah ah !) de manipulations [mémétiques](https://fr.wikipedia.org/wiki/M%C3%A9m%C3%A9tique). C'est qu'on en apprend des trucs dans les [vieux bouquins de jdr](https://www.legrog.org/jeux/cops). Sur ce, l'interface système virtuelle de `GDAL` (VSI : Virtual System Interface).
 
-`GDAL` possède une mécanique ([le VSI](https://gdal.org/en/stable/programs/index.html#virtual-system-interface-vsi-commands)) qui lui permet de lire des fichiers *à travers* un autre média (fichier zip, serveur http...).
+`GDAL` possède une mécanique ([le VSI](https://gdal.org/en/stable/programs/index.html#virtual-system-interface-vsi-commands)) qui lui permet de lire des fichiers *à travers* un autre média (fichier zip, serveur http...). Julien l'avait déjà mis en avant dans [son article sur le traitement des bases d'adresses locales](../2021/2021-09-07_traiter_fichiers_adresse_gdal_csv_vrt.md#la-magie-du-système-virtuel-de-gdal-vsi).
 
 Pour l'invoquer, on utilisera `vsi` à la place de `vector`/`raster` pour on ajoute le préfixe `/vsi*quelque_chose*/` devant notre fichier.
 
