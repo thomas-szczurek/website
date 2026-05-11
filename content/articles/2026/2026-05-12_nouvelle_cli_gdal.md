@@ -23,8 +23,8 @@ tags:
 
 :calendar: Date de publication initiale : {{ page.meta.date | date_localized }}
 
-> "Oh non, pas gdal_translate ! C'était mon préféré !"
-> *Un photogramètre anonyme en détresse*
+!!! quote "Un photogrammètre anonyme en détresse"
+    Oh non, pas `gdal_translate` ! C'était mon préféré !"  
 
 Depuis sa version 3.11 (et son intégration à QGIS 3.44), la CLI (Command Line Interface / Interface en Ligne de Commande) de `GDAL` a été entièrement revue. On va ici présenter cette nouvelle interface et brosser un aperçu de ce qu'on peut réaliser avec `GDAL` dans un court article. *Nota bene : COURT on a dit.*
 
