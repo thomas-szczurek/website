@@ -6,7 +6,7 @@ authors:
 categories:
     - article
 comments: true
-date: 2026-03-23
+date: 2026-05-12
 description: "Principes et fonctionnement de la nouvelle CLI GDAL."
 icon: simple/gdal
 image:
