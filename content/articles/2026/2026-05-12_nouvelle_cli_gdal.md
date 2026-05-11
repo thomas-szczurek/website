@@ -32,7 +32,7 @@ Depuis sa version 3.11 (et son intégration à QGIS 3.44), la CLI (Command Line 
 
 ![Logo GDAL](https://cdn.geotribu.fr/img/logos-icones/logiciels_librairies/gdal.png){: .img-thumbnail-left}
 
-[`GDAL`](https://gdal.org/en/stable/) est une librairie de programmes open source en C/C++ permettant de réaliser des convertion de fichier vecteur/rasteur, et des traitements raster. Cette librairie se cache derrière à peu près tous les logiciels contenant "SIG" dans leur description. Quand vous demandez à QGIS d'enregistrer votre fichier `geopackage` en `flatgeobuf` ou en `geoparquet` pour les amateur.trices de formats modernes mais étranges (perso je ne travaille plus qu'en [DuckLake](https://duckdb.org/2025/05/27/ducklake.html) Spatial pour embêter mes collègues), en réalité QGIS *demande* à GDAL de réaliser l'opération.
+[`GDAL`](https://gdal.org/en/stable/) est une bibliothèque de programmes open source en C/C++ permettant de réaliser des conversion de fichier vecteur/rasteur, et des traitements raster. Cette librairie se cache derrière à peu près tous les logiciels contenant "SIG" dans leur description. Quand vous demandez à QGIS d'enregistrer votre fichier `geopackage` en `flatgeobuf` ou en `geoparquet` pour les amateur·trices de formats modernes mais étranges (perso je ne travaille plus qu'en [DuckLake Spatial](https://duckdb.org/2025/05/27/ducklake.html) pour embêter mes collègues), en réalité QGIS *demande* à GDAL de réaliser l'opération.
 
 Les anciens noms des programmes dédiés au vecteur font référence à `ogr`, une ancienne librairie depuis *absorbée* par GDAL.
 
