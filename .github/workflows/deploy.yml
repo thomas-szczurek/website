@@ -8,6 +8,8 @@ on:
       - ".github/workflows/deploy.yml"
       - "config/*.yml"
       - "content/**"
+      - hooks/macros/*.py
+      - hooks/mkdocs/*.py
       - "mkdocs.yml"
       - "requirements*.txt"
   workflow_dispatch:
@@ -84,7 +86,7 @@ jobs:
         uses: actions/configure-pages@v6
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           # Upload entire repository
           path: "build/mkdocs/site"
