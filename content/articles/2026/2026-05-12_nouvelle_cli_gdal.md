@@ -201,7 +201,7 @@ Enfin, on peut aussi profiter de `GDAL` pour générer des `SOzip` (Seek-Optimiz
 gdal vsi sozip create my.gpkg my.gpkg.zip
 ```
 
-## l'API Python
+## L'API Python
 
 Enfin, toute cette modernisation impacte évidemment les API, et celle qui nous interesse ici, l'[API Python](https://gdal.org/en/stable/programs/gdal_cli_from_python.html).
 
